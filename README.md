@@ -1,62 +1,39 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
+# Portfolio WordPress avec Roots/Bedrock
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/bedrock?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
+## Explication des Étapes Réalisées
+1. **Installation de Bedrock** : Mise en place de WordPress via Roots/Bedrock avec Composer.
+2. **Thème Enfant** : Création d’un thème enfant basé sur Astra (`astra-child`).
+3. **Custom Post Type (CPT)** : Ajout d’un CPT "Portfolio" avec taxonomies personnalisées (`cpt-portfolio.php`).
+4. **Champs ACF** : Configuration de champs personnalisés (client, date, lien, image) pour les réalisations.
+5. **Templates** :
+   - `front-page.php` : Page d’accueil avec nom, présentation, compétences (grille), et 3 réalisations.
+   - `archive-portfolio.php` : Liste toutes les réalisations en grille.
+   - `single-portfolio.php` : Page individuelle pour chaque réalisation avec détails ACF.
+6. **Design Personnalisé** : CSS avec fond sombre (#1B0C1A), palette (#765D67, #6D3C52, etc.), et centrage.
+7. **Menu** : Ajout du lien "/portfolio/" dans la navbar via WordPress.
+8. **GitHub** : Versionnement sur GitHub avec changement d’URL du dépôt.
 
-  <a href="https://packagist.org/packages/roots/wordpress">
-    <img alt="roots/wordpress Packagist Downloads" src="https://img.shields.io/packagist/dt/roots/wordpress?label=roots%2Fwordpress%20downloads&logo=roots&logoColor=white&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
-  
-  <img src="https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/roots/bedrock/master/composer.json&label=wordpress&logo=roots&logoColor=white&query=$.require[%22roots/wordpress%22]&colorB=2b3072&colorA=525ddc&style=flat-square">
+## Difficultés Rencontrées
+- **Rectangle indésirable** : Un rectangle hérité d’Astra entourait le contenu de `single-portfolio.php`. Résolu en forçant `background: transparent !important` et en supprimant bordures/ombres.
+- **Centrage** : Les éléments étaient décalés à gauche. Corrigé avec `margin: 0 auto` et `justify-content: center` dans les grilles.
+- **Affichage des Réalisations** : Les 3 réalisations sur `front-page.php` n’étaient pas sur une ligne. Ajusté avec `grid-template-columns: repeat(3, 1fr)`.
+- **Changement d’URL Git** : Difficulté à relier à un nouveau dépôt GitHub. Résolu avec `git remote set-url`.
 
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/bedrock/ci.yml?branch=master&logo=github&label=CI&style=flat-square">
-  </a>
+## Comment Installer et Lancer le Projet
+1. **Cloner ou Télécharger** :
+   - Cloner : `git clone https://github.com/ton-username/nouveau-portfolio.git`
+   - Ou dézipper `portfolio-export.zip`.
+2. **Installer les Dépendances** :
+   - Exécuter `composer install` à la racine pour installer les dépendances Bedrock.
+3. **Configurer la Base de Données** :
+   - Créer une base MySQL (ex. `portfolio_db`).
+   - Importer `portfolio_db.sql` : `mysql -u ton_utilisateur -p portfolio_db < portfolio_db.sql`.
+4. **Configurer `.env`** :
+   - Copier `.env.example` en `.env`.
+   - Remplir les infos de la base (DB_NAME, DB_USER, DB_PASSWORD) et les clés WordPress.
+5. **Lancer le Site** :
+   - Utiliser un serveur local (MAMP, XAMPP, etc.).
+   - Accéder via `http://localhost/chemin/vers/bedrock/web`.
 
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/badge/follow%20@rootswp-1da1f2?logo=twitter&logoColor=ffffff&message=&style=flat-square">
-  </a>
-</p>
-
-<p align="center">WordPress boilerplate with Composer, easier configuration, and an improved folder structure</p>
-
-<p align="center">
-  <a href="https://roots.io/bedrock/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/bedrock/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/bedrock/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/">Community</a>
-</p>
-
-## Sponsors
-
-Bedrock is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, please consider [sponsoring Roots](https://github.com/sponsors/roots).
-
-<div align="center">
-<a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a> <a href="https://bonsai.so/"><img src="https://cdn.roots.io/app/uploads/bonsai.svg" alt="Bonsai" width="120" height="90"></a> <a href="https://fusepress.co/sp/sign-up/"><img src="https://cdn.roots.io/app/uploads/fusepress.svg" alt="FusePress" width="120" height="90"></a>
-</div>
-
-## Overview
-
-Bedrock is a WordPress boilerplate for developers that want to manage their projects with Git and Composer. Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology, including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
-
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
-
-## Getting Started
-
-See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
-
-## Stay Connected
-
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
+## Notes
+- Fichiers fournis : ZIP (`portfolio-export.zip`) avec fichiers + base SQL.
