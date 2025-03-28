@@ -22,7 +22,7 @@
 ## Comment Installer et Lancer le Projet
 1. **Cloner ou Télécharger** :
    - Cloner : `git clone https://github.com/ton-username/nouveau-portfolio.git`
-   - Ou dézipper `portfolio-export.zip`.
+   - Ou dézipper `portfolio-export.7zip`.
 2. **Installer les Dépendances** :
    - Exécuter `composer install` à la racine pour installer les dépendances Bedrock.
 3. **Configurer la Base de Données** :
@@ -33,7 +33,7 @@
    - Remplir les infos de la base (DB_NAME, DB_USER, DB_PASSWORD) et les clés WordPress.
 5. **Lancer le Site** :
    - Utiliser un serveur local (MAMP, XAMPP, etc.).
-   - Accéder via `http://localhost/chemin/vers/bedrock/web`.
+   - Accéder via `http://localhost/port/bedrock/web`.
 
 ## Notes
 - Fichiers fournis : ZIP (`portfolio-export.zip`) avec fichiers + base SQL.
