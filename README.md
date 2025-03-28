@@ -22,7 +22,7 @@
 ## Comment Installer et Lancer le Projet
 1. **Cloner ou Télécharger** :
    - Cloner : `git clone https://github.com/ton-username/nouveau-portfolio.git`
-   - Ou dézipper `portfolio-export.7zip`.
+   - Ou dézipper `portfolio-export.zip`.
 2. **Installer les Dépendances** :
    - Exécuter `composer install` à la racine pour installer les dépendances Bedrock.
 3. **Configurer la Base de Données** :
